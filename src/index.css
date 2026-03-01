@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Scrollbar customizada */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #C4956A;
+  border-radius: 3px;
+}
+scrollbar-width: thin;
+scrollbar-color: #C4956A transparent;
+
+/* Smooth scroll global */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Base */
+body {
+  font-family: 'Lato', 'Helvetica Neue', sans-serif;
+  font-weight: 300;
+  color: #2C2420;
+  background-color: #F5EDE0;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Tipografia heading */
+.font-heading {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+/* Linha divisória elegante */
+.divider {
+  height: 1px;
+  background: rgba(196, 149, 106, 0.3);
+}
+
+/* Aspas decorativas para depoimentos */
+.quote-mark {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 4rem;
+  line-height: 1;
+  color: rgba(196, 149, 106, 0.4);
+}
