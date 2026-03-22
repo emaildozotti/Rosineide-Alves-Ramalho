@@ -35,24 +35,15 @@ export default function VideoSection() {
           data-aos="fade-up"
           data-aos-delay="100"
           className="relative w-full aspect-video bg-bg-light/10 rounded-xl overflow-hidden border border-off-white/10"
-          id="video-placeholder"
         >
-          {/* Placeholder visual */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
-            <div className="w-20 h-20 rounded-full bg-primary/20 border-2 border-primary/50 flex items-center justify-center cursor-pointer hover:bg-primary/30 transition-colors duration-300">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="#C4956A">
-                <path d="M8 5v14l11-7z" />
-              </svg>
-            </div>
-            <div className="text-center">
-              <p className="font-body text-xs font-light text-off-white/50 tracking-wide">
-                Vídeo da Rosineide Ramalho
-              </p>
-              <p className="font-body text-xs text-primary/60 mt-1">
-                Inserir ID do YouTube no componente VideoSection.jsx
-              </p>
-            </div>
-          </div>
+          <iframe
+            src="https://www.youtube.com/embed/NUBUONCMcQ0"
+            title="Rosineide Ramalho — Apresentação"
+            className="w-full h-full"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
         </div>
 
         <div data-aos="fade-up" className="text-center mt-10">

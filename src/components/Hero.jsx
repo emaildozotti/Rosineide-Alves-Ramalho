@@ -79,7 +79,7 @@ export default function Hero() {
               <div className="relative rounded-xl overflow-hidden aspect-[3/4] bg-bg-light flex items-center justify-center">
                 {/* Placeholder — substituir pela foto da Rosineide */}
                 <img
-                  src="/foto-rosineide.jpg"
+                  src="/images/hero.jpg"
                   alt="Rosineide Ramalho — Terapeuta Emocional"
                   className="client-photo w-full h-full object-cover object-center"
                   onError={(e) => {

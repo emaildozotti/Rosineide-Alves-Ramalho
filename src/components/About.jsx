@@ -73,7 +73,7 @@ export default function About() {
               <div className="absolute -inset-3 bg-primary/10 rounded-2xl" />
               <div className="relative rounded-xl overflow-hidden aspect-[3/4] bg-bg-warm flex items-center justify-center">
                 <img
-                  src="/foto-rosineide.jpg"
+                  src="/images/about.jpg"
                   alt="Rosineide Ramalho"
                   className="client-photo w-full h-full object-cover object-top"
                   onError={(e) => {
