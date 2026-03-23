@@ -1,116 +1,120 @@
+const WA_LINK = 'https://wa.me/5500000000000?text=Ol%C3%A1%2C%20Rosineide!%20Vim%20pelo%20seu%20site%20e%20quero%20conhecer%20o%20processo.'
+
+const css = `
+@keyframes aurora-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(3%, 5%) scale(1.05); }
+  66% { transform: translate(-2%, 2%) scale(0.97); }
+}
+@keyframes aurora-2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-4%, -3%) scale(1.08); }
+  66% { transform: translate(3%, -1%) scale(0.95); }
+}
+@keyframes aurora-3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(2%, -4%) scale(1.06); }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+`
+
 export default function Hero() {
   const scrollToPain = () => {
-    document.getElementById('dores').scrollIntoView({ behavior: 'smooth' })
+    document.getElementById('dores')?.scrollIntoView({ behavior: 'smooth' })
   }
 
   return (
-    <section
-      id="hero"
-      className="relative min-h-screen bg-bg-warm flex items-center overflow-hidden"
-    >
-      {/* Background ornament */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-bg-light/40" />
-        <div className="absolute bottom-0 left-0 w-64 h-64 rounded-full bg-primary/5 blur-3xl" />
-      </div>
+    <>
+      <style>{css}</style>
 
-      <div className="relative z-10 w-full max-w-6xl mx-auto px-6 md:px-8 py-20 md:py-0">
-        <div className="flex flex-col md:flex-row items-center gap-12 md:gap-16">
+      {/* Desktop sticky header */}
+      <header className="md-header" style={{ display: 'none' }}>
+        <style>{`@media(min-width:768px){.md-header{display:flex!important;position:fixed;top:0;left:0;right:0;z-index:50;align-items:center;justify-content:space-between;padding:1rem 2.5rem;background:rgba(12,18,14,0.88);backdrop-filter:blur(12px);border-bottom:1px solid rgba(180,140,100,0.12)}}`}</style>
+        <span style={{ fontFamily: 'var(--font-heading, serif)', color: 'var(--color-primary, #B48C64)', fontSize: '1.1rem', fontStyle: 'italic' }}>
+          Rosineide Ramalho
+        </span>
+        <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="btn-shimmer" style={{ fontSize: '0.8rem' }}>
+          Agendar conversa
+        </a>
+      </header>
 
-          {/* Texto */}
-          <div className="flex-1 text-center md:text-left">
-            {/* Mobile: nome integrado no hero */}
-            <div className="md:hidden mb-8">
-              <p className="font-body text-xs font-light tracking-[0.18em] uppercase text-secondary mb-1">
-                Terapia Emocional
-              </p>
-              <p className="font-heading text-2xl text-heading-color font-medium">
-                Rosineide Ramalho
-              </p>
-            </div>
+      <section
+        id="hero"
+        aria-label="Hero Rosineide Ramalho"
+        style={{
+          position: 'relative',
+          minHeight: '100vh',
+          display: 'flex',
+          alignItems: 'center',
+          overflow: 'hidden',
+          background: 'linear-gradient(135deg, #0C120E 0%, #101A12 50%, #0A0E0C 100%)',
+        }}
+      >
+        {/* Aurora blobs */}
+        <div aria-hidden="true" style={{ position: 'absolute', top: '-20%', right: '-10%', width: '55vw', height: '55vw', maxWidth: '580px', maxHeight: '580px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(100,140,100,0.25) 0%, transparent 70%)', filter: 'blur(80px)', pointerEvents: 'none', animation: 'aurora-1 18s ease-in-out infinite', opacity: 0.35 }} />
+        <div aria-hidden="true" style={{ position: 'absolute', bottom: '-15%', left: '-8%', width: '45vw', height: '45vw', maxWidth: '500px', maxHeight: '500px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(180,140,100,0.22) 0%, transparent 70%)', filter: 'blur(90px)', pointerEvents: 'none', animation: 'aurora-2 22s ease-in-out infinite', opacity: 0.3 }} />
+        <div aria-hidden="true" style={{ position: 'absolute', top: '40%', left: '35%', width: '35vw', height: '35vw', maxWidth: '400px', maxHeight: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(120,160,120,0.15) 0%, transparent 70%)', filter: 'blur(70px)', pointerEvents: 'none', animation: 'aurora-3 16s ease-in-out infinite', opacity: 0.25 }} />
 
+        {/* Content */}
+        <div
+          className="hero-grid"
+          style={{ position: 'relative', zIndex: 10, width: '100%', maxWidth: '72rem', margin: '0 auto', padding: '6rem 1.5rem 4rem', display: 'grid', gridTemplateColumns: '1fr', gap: '3rem', alignItems: 'center' }}
+        >
+          <style>{`@media(min-width:768px){.hero-grid{grid-template-columns:1fr 1fr!important;padding-top:5rem!important}.r-photo{order:2}.r-text{order:1}}`}</style>
+
+          {/* Text column — mobile first */}
+          <div className="r-text" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+            {/* Callout */}
             <p
-              data-aos="fade-up"
-              data-aos-delay="0"
-              className="font-body text-xs font-light tracking-[0.2em] uppercase text-secondary mb-4"
+              style={{ fontFamily: 'var(--font-body, sans-serif)', fontSize: '10px', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--color-primary, #B48C64)', margin: 0, opacity: 0, animation: 'fadeUp 0.8s ease forwards', animationDelay: '0s' }}
             >
-              Abordagem Sistêmica · Espiritual · Integrativa
+              TERAPIA EMOCIONAL
             </p>
 
+            {/* H1 */}
             <h1
-              data-aos="fade-up"
-              data-aos-delay="100"
-              className="font-heading text-4xl md:text-5xl lg:text-6xl text-heading-color font-semibold leading-[1.12] mb-5"
+              style={{ fontFamily: 'var(--font-heading, serif)', fontSize: 'clamp(2.2rem, 5vw, 4rem)', lineHeight: 1.12, color: '#F0EBE3', margin: 0, opacity: 0, animation: 'fadeUp 0.8s ease forwards', animationDelay: '0.15s' }}
             >
-              Acolha sua história.
-              <br />
-              <em className="font-light">Retorne à sua essência.</em>
+              Acolha sua história.{' '}
+              <em style={{ fontWeight: 300, color: 'var(--color-primary, #B48C64)', display: 'block', marginTop: '0.2rem' }}>
+                Retorne à sua essência.
+              </em>
             </h1>
 
+            {/* Sub-headline */}
             <p
-              data-aos="fade-up"
-              data-aos-delay="200"
-              className="font-body text-base md:text-lg font-light text-text-main/80 leading-relaxed mb-8 max-w-lg mx-auto md:mx-0"
+              style={{ fontFamily: 'var(--font-body, sans-serif)', fontSize: 'clamp(1rem, 1.6vw, 1.15rem)', lineHeight: 1.65, color: 'rgba(240,235,227,0.70)', maxWidth: '30rem', margin: 0, opacity: 0, animation: 'fadeUp 0.8s ease forwards', animationDelay: '0.30s' }}
             >
-              Você não precisa continuar carregando o peso do que nunca foi acolhido.
+              O que não foi acolhido ainda pode ser curado.
             </p>
 
-            <div data-aos="fade-up" data-aos-delay="300">
-              <button
-                onClick={scrollToPain}
-                className="bg-primary text-off-white font-body text-sm font-normal tracking-[0.08em] uppercase px-9 py-4 rounded hover:bg-primary-dark hover:shadow-lg hover:shadow-primary/25 hover:-translate-y-0.5 transition-all duration-300"
-              >
-                Quero conhecer esse processo →
+            {/* CTA */}
+            <div style={{ opacity: 0, animation: 'fadeUp 0.8s ease forwards', animationDelay: '0.45s' }}>
+              <button onClick={scrollToPain} className="btn-shimmer">
+                Quero conhecer esse processo
               </button>
-              <p className="mt-4 font-body text-xs font-light text-text-main/50 tracking-wide">
-                Atendimento Online · Agenda Individual · Sigiloso
-              </p>
             </div>
           </div>
 
-          {/* Foto */}
-          <div
-            data-aos="fade-left"
-            data-aos-delay="200"
-            className="flex-shrink-0 w-72 md:w-80 lg:w-96"
-          >
-            <div className="relative">
-              <div className="absolute -inset-3 bg-primary/10 rounded-2xl" />
-              <div className="relative rounded-xl overflow-hidden aspect-[3/4] bg-bg-light flex items-center justify-center">
-                {/* Placeholder — substituir pela foto da Rosineide */}
-                <img
-                  src="/images/hero.jpg"
-                  alt="Rosineide Ramalho — Terapeuta Emocional"
-                  className="client-photo w-full h-full object-cover object-center"
-                  onError={(e) => {
-                    e.target.style.display = 'none'
-                    e.target.nextSibling.style.display = 'flex'
-                  }}
-                />
-                <div
-                  className="hidden w-full h-full items-center justify-center flex-col gap-3 text-center px-6"
-                  style={{ display: 'none' }}
-                >
-                  <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center">
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#C4956A" strokeWidth="1.5">
-                      <circle cx="12" cy="8" r="4" />
-                      <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
-                    </svg>
-                  </div>
-                  <p className="font-body text-xs font-light text-text-main/50 tracking-wide">
-                    Foto da Rosineide
-                    <br />
-                    <span className="text-primary/70">Inserir em /public/foto-rosineide.jpg</span>
-                  </p>
-                </div>
-              </div>
-              {/* Ornamento decorativo */}
-              <div className="absolute -bottom-4 -right-4 w-20 h-20 border border-primary/30 rounded-full" />
+          {/* Photo — Treatment C: asymmetric border-radius */}
+          <div className="r-photo" style={{ display: 'flex', justifyContent: 'center', opacity: 0, animation: 'fadeUp 1s ease forwards', animationDelay: '0.2s' }}>
+            <div style={{ position: 'relative', width: '100%', maxWidth: '380px' }}>
+              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, #0C120E 0%, transparent 45%)', zIndex: 1, pointerEvents: 'none', borderRadius: '2rem 4px 2rem 4px' }} aria-hidden="true" />
+              {/* Subtle glow behind */}
+              <div aria-hidden="true" style={{ position: 'absolute', inset: '-4px', background: 'rgba(100,140,100,0.08)', borderRadius: '2.5rem 6px 2.5rem 6px', filter: 'blur(4px)' }} />
+              <img
+                src="/images/hero.jpg"
+                alt="Rosineide Ramalho — Terapeuta Emocional"
+                style={{ position: 'relative', width: '100%', aspectRatio: '3/4', objectFit: 'cover', objectPosition: 'top', borderRadius: '2rem 4px 2rem 4px', display: 'block', boxShadow: '0 25px 60px rgba(0,0,0,0.65)', border: '1px solid rgba(180,140,100,0.2)' }}
+                loading="eager"
+              />
             </div>
           </div>
-
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   )
 }
