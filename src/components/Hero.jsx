@@ -1,4 +1,4 @@
-const WA_LINK = 'https://wa.me/5500000000000?text=Ol%C3%A1%2C%20Rosineide!%20Vim%20pelo%20seu%20site%20e%20quero%20conhecer%20o%20processo.'
+const WA_LINK = 'https://wa.me/5582981347572?text=Ol%C3%A1%2C%20Rosineide!%20Vim%20pelo%20seu%20site%20e%20quero%20conhecer%20o%20processo.'
 
 const css = `
 @keyframes aurora-1 {
