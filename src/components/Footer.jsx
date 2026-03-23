@@ -1,5 +1,5 @@
 // ⚠️ Substituir XXXXXXXXXXX pelo WhatsApp real da Rosineide antes do deploy
-const WHATSAPP_NUMBER = '55XXXXXXXXXXX'
+const WHATSAPP_NUMBER = '5582981347572'
 const WHATSAPP_MESSAGE = encodeURIComponent(
   'Olá Rosineide! Vi sua página e gostaria de saber mais sobre seu processo terapêutico.'
 )
